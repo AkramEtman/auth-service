@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+
+  fatura:
+    container_name: fatura
+    image: fatura:1.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongodb
+      - redis
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/fatura
+      - REDIS_URI=redis://redis:6379/
+# todo
+
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - SESSION_SECRET=wsaqrfcgr
+# todo
+
+      - JWT_SECRET=kvjhjhjjl
+      - JWT_EXPIRATION_TIME=36000
+
+
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - fatura-db:/data/db
+
+
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+    restart: always
+
+volumes:
+  fatura-db:
+    name: fatura-db
