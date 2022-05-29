@@ -15,9 +15,14 @@ docker-compose up --build
 $ npm run test
 ```
 ## Basic Concepts
-* Project was built with * Nestjs * MongoDb * `Redis` for storing sessions * Swagger for API Docs * JWT as Authentication middleware ( not as Session Management ) * Server-side sessions Approach * Docker
-
-## Solution Idea
+* Project was built with 
+* Nestjs 
+* MongoDb 
+* `Redis` for storing sessions 
+* Swagger for API Docs 
+* JWT as Authentication middleware ( not as Session Management ) 
+* Server-side sessions Approach 
+* Docker
 
 ## System User Type
 - user: ( register, login, logout, update-user, get-session )

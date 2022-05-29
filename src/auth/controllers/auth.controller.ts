@@ -39,7 +39,7 @@ export class AuthController {
   @UseGuards(JwtAuthGuard)
   @Roles(Role.Admin)
   @Get('/auth/logout/:userId')
-  logoutUser(@Request() req, @Query("userId") userId: string) {
+  logoutUser(@Request() req, @Param("userId") userId: string) {
     return this.authService.logout(userId);
   }
 }
